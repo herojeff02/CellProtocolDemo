@@ -106,7 +106,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="button2:" destination="PzN-bs-fFK" eventType="touchUpInside" id="Jx9-8h-tpZ"/>
+                                                <action selector="button2:" destination="usP-C9-EDG" eventType="touchUpInside" id="LZn-D4-DyO"/>
                                             </connections>
                                         </button>
                                     </subviews>

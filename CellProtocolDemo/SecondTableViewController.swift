@@ -8,15 +8,20 @@
 
 import UIKit
 
-class SecondTableViewController: UITableViewController {
+protocol SecondTableDelegate {
+    func secondTableManipulate(_ sender: SecondTableViewCell)
+}
+
+class SecondTableViewController: UITableViewController, SecondTableDelegate {
+    func secondTableManipulate(_ sender: SecondTableViewCell) {
+        guard let indexPath = table2.indexPath(for: sender) else { return }
+        
+        array2[indexPath.row] = "Clicked"
+                table2.reloadData()
+    }
+    
 
     @IBOutlet var table2: UITableView!
-    @IBAction func button2(_ sender: UIButton) {
-        let cell = sender.superview!.superview
-        let indexPath = tableView.indexPath(for: cell as! UITableViewCell)
-        array2[indexPath!.row] = "Clicked"
-        table2.reloadData()
-    }
     
     var array2: [String] = []
     
@@ -50,6 +55,8 @@ class SecondTableViewController: UITableViewController {
         }
 
         customCell.titleLabel.text = array2[indexPath.row]
+        
+        customCell.delegate = self
 
         return cell
     }
@@ -104,7 +111,12 @@ class SecondTableViewController: UITableViewController {
 
 class SecondTableViewCell: UITableViewCell {
     
+    var delegate: SecondTableDelegate?
+    
     @IBOutlet weak var titleLabel: UILabel!
+    @IBAction func button2(_ sender: UIButton) {
+        delegate?.secondTableManipulate(self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
