@@ -54,7 +54,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="button:" destination="uyz-7s-73T" eventType="touchUpInside" id="Jzc-Bm-o3m"/>
+                                                <action selector="button1:" destination="xfE-oc-pQh" eventType="touchUpInside" id="c06-b7-xMH"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -106,7 +106,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="button:" destination="usP-C9-EDG" eventType="touchUpInside" id="FQO-c2-NIY"/>
+                                                <action selector="button2:" destination="PzN-bs-fFK" eventType="touchUpInside" id="Jx9-8h-tpZ"/>
                                             </connections>
                                         </button>
                                     </subviews>

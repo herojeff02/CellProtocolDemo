@@ -11,6 +11,12 @@ import UIKit
 class FirstTableViewController: UITableViewController {
 
     @IBOutlet var table1: UITableView!
+    @IBAction func button1(_ sender: UIButton) {
+        let cell = sender.superview!.superview
+        let indexPath = tableView.indexPath(for: cell as! UITableViewCell)
+        array1[indexPath!.row] = "Clicked"
+        table1.reloadData()
+    }
     
     var array1: [String] = []
     
@@ -96,9 +102,6 @@ class FirstTableViewController: UITableViewController {
 class FirstTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBAction func button(_ sender: Any) {
-    }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
