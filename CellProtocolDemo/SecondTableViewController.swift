@@ -10,37 +10,44 @@ import UIKit
 
 class SecondTableViewController: UITableViewController {
 
+    @IBOutlet var table2: UITableView!
+    
+    var array2: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        for i in (1...20) {
+            array2.append("Title \(String(i))")
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return array2.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuse2", for: indexPath)
 
-        // Configure the cell...
+        guard let customCell = cell as? SecondTableViewCell
+            else{
+        return cell
+        }
+
+        customCell.titleLabel.text = array2[indexPath.row]
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,4 +94,26 @@ class SecondTableViewController: UITableViewController {
     }
     */
 
+}
+
+class SecondTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBAction func button(_ sender: Any) {
+//        array2[indexPath.row] = "clicked"
+//        table2.reloadData()
+    }
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
 }
